@@ -7,11 +7,11 @@
         </div>
         <div>
           <p class="m0 size-14 text-bold">
-            <span translate>Available Balance</span>: 
+            <span translate>Available Balance</span>:
             {{$root.wallet.balanceInfo.availableBalance}} {{$root.wallet.settings.unitName}}
           </p>
           <span class="size-12 text-gray">
-            {{$root.wallet.balanceInfo.lockedBalance}} {{$root.wallet.settings.unitName}} 
+            {{$root.wallet.balanceInfo.lockedBalance}} {{$root.wallet.settings.unitName}}
             <span translate>in pending transactions</span>
           </span>
         </div>
@@ -19,12 +19,12 @@
     </div>
   </div>
   <div class="row">
-    <div class="large-8 large-centered columns"> 
+    <div class="large-8 large-centered columns">
       <div class="row show-for-large-up">
         <div class="large-7 columns">
           <h1>{{$root.title|translate}}</h1>
         </div>
-        <div class="large-5 columns show-for-large-up text-right" 
+        <div class="large-5 columns show-for-large-up text-right"
           ng-show="(!lockAddress && !_merchantData && !fetchingURL)">
           <div ng-hide="showScanner || disableScanner">
             <a class="button radius black tiny m0" ng-click="openScanner()"><i class="fi-camera size-18 vm m5r"></i> Scan QR </a>
@@ -67,7 +67,7 @@
             <div class="row collapse">
 
               <label for="address" class="left" >
-                <span translate>To</span> 
+                <span translate>To</span>
               </label>
 
               <span ng-hide="sendForm.address.$pristine">
@@ -84,7 +84,7 @@
             </div>
 
             <div class="input">
-              <input type="text" id="address" name="address" ng-disabled="loading || lockAddress" placeholder="{{'Bitcoin address'|translate}}" ng-model="_address" valid-address required ng-focus="formFocus('address')" ng-blur="formFocus(false)">
+              <input type="text" id="address" name="address" ng-disabled="loading || lockAddress" placeholder="{{'MonetaryUnit address'|translate}}" ng-model="_address" valid-address required ng-focus="formFocus('address')" ng-blur="formFocus(false)">
               <a class="postfix" ng-click="openAddressBook()"><i class="fi-address-book size-24"></i></a>
             </div>
             <div id="scanner" class="row" ng-if="showScanner" ng-include="'views/includes/scanner.html'">
@@ -94,12 +94,12 @@
             <div class="row collapse" ng-click="openPPModal(_merchantData)">
 
               <label for="domain">
-                <span translate>Payment to</span> 
+                <span translate>Payment to</span>
               </label>
 
               <div class="input block">
                 <input class="p45li" type="text" id="domain" name="domain" ng-model="_domain" ng-disabled="1">
-                <i class="fi-lock color-greeni"></i> 
+                <i class="fi-lock color-greeni"></i>
               </div>
             </div>
           </div>
@@ -142,13 +142,13 @@
                 <small translate class="has-error" ng-show="sendForm.comment.$invalid && !sendForm.comment.$pristine">too long!</small>
               </label>
               <div class="input">
-                <textarea id="comment" ng-disabled="loading" name="comment" ng-if="isShared" 
-                  placeholder="{{'Leave a private message to your copayers'|translate}}" 
-                  ng-maxlength="100" ng-model="_comment"  ng-focus="formFocus('msg')" 
+                <textarea id="comment" ng-disabled="loading" name="comment" ng-if="isShared"
+                  placeholder="{{'Leave a private message to your copayers'|translate}}"
+                  ng-maxlength="100" ng-model="_comment"  ng-focus="formFocus('msg')"
                   ng-blur="formFocus(false)"></textarea>
-                <textarea id="comment" ng-disabled="loading" name="comment" ng-if="!isShared" 
-                  placeholder="{{'Add a private comment to identify the transaction'|translate}}" 
-                  ng-maxlength="100" ng-model="_comment"  ng-focus="formFocus('msg')" 
+                <textarea id="comment" ng-disabled="loading" name="comment" ng-if="!isShared"
+                  placeholder="{{'Add a private comment to identify the transaction'|translate}}"
+                  ng-maxlength="100" ng-model="_comment"  ng-focus="formFocus('msg')"
                   ng-blur="formFocus(false)"></textarea>
               </div>
             </div>
@@ -161,7 +161,7 @@
               </button>
             </div>
             <div class="large-4 medium-4 small-12 columns text-right">
-              <a ng-click="resetForm()" class="button expand warning" 
+              <a ng-click="resetForm()" class="button expand warning"
                 ng-show="(_merchantData || lockAddress) && !loading" translate>Cancel</a>
             </div>
           </div>

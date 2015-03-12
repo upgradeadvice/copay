@@ -18,7 +18,7 @@
   </div>
   <div class="size-42"  ng-class="{
         'text-primary' : btx.action == 'received',
-        'text-warning': btx.action == 'sent', 
+        'text-warning': btx.action == 'sent',
         'text-gray': btx.action == 'moved'}">
     <span ng-if="btx.action == 'received'">+</span><span ng-if="btx.action == 'sent'">-</span>{{btx.amount}}
       {{$root.wallet.settings.unitName}}
@@ -36,12 +36,12 @@
   </tr>
 
   <tr ng-if="btx.comment">
-    <td width="30"><i translate>Note:</i></td> 
+    <td width="30"><i translate>Note:</i></td>
     <td class="">{{btx.comment}}</td>
   </tr>
 
   <tr ng-if="btx.merchant">
-    <td width="30"><i translate>Merchant Message:</i></td>  
+    <td width="30"><i translate>Merchant Message:</i></td>
     <td class="text-gray">{{btx.merchant.pr.pd.memo}}</td>
   </tr>
 
@@ -74,8 +74,7 @@
 
 <small class="ellipsis text-gray m20b text-right"  ng-if="btx.txid" > ID: {{btx.txid}} </small>
 
-<a class="button outline light-gray tiny right" ng-click="$root.openExternalLink('http://' + getShortNetworkName() + '.insight.is/tx/' + btx.txid)"  ng-if="btx.txid">
+<a class="button outline light-gray tiny right" ng-click="$root.openExternalLink('http://104.236.152.29/tx/' + btx.txid)"  ng-if="btx.txid">
   <span translate>See it on the blockchain</span> <i class="icon-arrow-right2 vm"></i>
 </a>
 </div>
-

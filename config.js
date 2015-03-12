@@ -18,7 +18,7 @@ var defaultConfig = {
       transports: ['polling'],
     },
     livenet: {
-      url: 'https://insight.bitpay.com:443',
+      url: 'http://104.236.152.29',
       transports: ['polling'],
     },
   },
@@ -46,7 +46,7 @@ var defaultConfig = {
   },
 
   rates: {
-    url: 'https://insight.bitpay.com:443/api/rates',
+    url: 'http://104.236.152.29/api/rates',
   },
 
   verbose: 1,
@@ -61,7 +61,7 @@ var defaultConfig = {
 
   // This can be changed on the UX > Settings > Insight livenet
   EncryptedInsightStorage: {
-    url: 'https://insight.bitpay.com:443/api/email',
+    url: 'http://104.236.152.29/api/email',
     //url: 'http://localhost:3001/api/email'
 
     // This KDF parameters are for the passphrase for Insight authentication
@@ -78,7 +78,7 @@ var defaultConfig = {
   GoogleDrive: {
     home: 'copay',
 
-    
+
     // This clientId was generated at:
     // https://console.developers.google.com/project
     // To run Copay with Google Drive at your domain you need

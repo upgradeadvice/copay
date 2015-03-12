@@ -16,15 +16,15 @@
       The software you are about to use is free, open source, and unsupported beta software. It is important to understand
       that beta software refers to software that is undergoing testing and has not officially been released, could have
       bugs, and may not act in a reliable fashion. Because the software is currently in beta, it is possible but not certain
-      that you may lose bitcoin or the value of your bitcoin. It is recommended that you store only nominal amounts of
-      bitcoins. You acknowledge that your use of this software is at your own discretion and in compliance with all
+      that you may lose MonetaryUnits or the value of your MonetaryUnits. It is recommended that you store only nominal amounts of
+      MonetaryUnits. You acknowledge that your use of this software is at your own discretion and in compliance with all
       applicable laws. You are responsible for safekeeping your login IDs, passwords, private key pairs, PINs and any other
       codes you use to access the software. IF YOU HAVE NOT SEPARATELY STORED A BACKUP OF ANY WALLET ADDRESSES AND PRIVATE
-      KEY PAIRS MAINTAINED IN YOUR ACCOUNT, YOU ACKNOWLEDGE AND AGREE THAT ANY BITCOINS YOU HAVE ASSOCIATED WITH SUCH WALLET
+      KEY PAIRS MAINTAINED IN YOUR ACCOUNT, YOU ACKNOWLEDGE AND AGREE THAT ANY MONETARYUNITS YOU HAVE ASSOCIATED WITH SUCH WALLET
       ADDRESSES WILL BECOME INACCESSIBLE IF YOU DO NOT HAVE YOUR ACCOUNT PASSWORD AND/OR PIN.  All transaction requests are
       irreversible.  The authors of the software, employees and affiliates of Bitpay, copyright holders, and BitPay, Inc.
       cannot retrieve your private keys or passwords if you lose or forget them and cannot guarantee transaction
-      confirmation as they do not have control over the Bitcoin network. You agree to provide accurate and complete
+      confirmation as they do not have control over the MonetaryUnit network. You agree to provide accurate and complete
       information in connection with your use of the account. You assume any and all risk associated with the use of the
       software. To the fullest extent permitted by law, this software is provided “as is” and no representations or
       warranties can be made of any kind, express or implied, including but not limited to the warranties of
@@ -104,13 +104,13 @@
         </div>
 
         <div class="input" ng-if="!usingLocalStorage">
-          <input type="email" ng-model="email" class="form-control" name="email" placeholder="{{'Email'|translate}}" 
+          <input type="email" ng-model="email" class="form-control" name="email" placeholder="{{'Email'|translate}}"
           required show-focus="!isMobile" ng-focus="formFocus()">
           <i class="icon-email"></i>
         </div>
 
         <div class="input" ng-if="usingLocalStorage">
-          <input type="text" ng-model="email" class="form-control" name="email" placeholder="{{'Username'|translate}}" 
+          <input type="text" ng-model="email" class="form-control" name="email" placeholder="{{'Username'|translate}}"
           required show-focus="!isMobile"  ng-focus="formFocus()">
           <i class="icon-person"></i>
         </div>
@@ -122,7 +122,7 @@
 
 
 
-        <button type="submit" class="button primary radius expand m0" 
+        <button type="submit" class="button primary radius expand m0"
           ng-disabled="loginForm.$invalid">
           {{'Sign in'|translate}}
         </button>
@@ -137,20 +137,20 @@
 
         <div class="right">
           <a class="button outline dark-gray tiny"  ng-click="$root.go('/settings')">
-            <i class="icon-wrench show-for-large-up size-14"></i> 
+            <i class="icon-wrench show-for-large-up size-14"></i>
             <span translate>Settings</span>
           </a>
         </div>
 
         <div class="left m10r">
           <a class="button outline dark-gray tiny"  ng-click="$root.go('/createProfile')">
-            <i class="icon-person show-for-large-up size-14"></i> 
+            <i class="icon-person show-for-large-up size-14"></i>
             <span translate>Create profile</span>
           </a>
         </div>
         <div class="left">
           <a class="button outline dark-gray tiny"  ng-click="$root.go('/importProfile')">
-            <i class="icon-upload show-for-large-up size-14"></i> 
+            <i class="icon-upload show-for-large-up size-14"></i>
             <span translate>Import</span>
           </a>
         </div>
@@ -159,5 +159,3 @@
   </div>
   </div>
 </div>
-
-

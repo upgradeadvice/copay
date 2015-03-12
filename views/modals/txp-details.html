@@ -57,16 +57,16 @@
 <div ng-if="tx.actionList[0]" class="m10v">
   <i translate>Signatures:</i>
   <ul class="tx-copayers m10t" ng-if="tx.actionList[0]">
-    <li ng-repeat="cId in registeredCopayerIds" 
+    <li ng-repeat="cId in registeredCopayerIds"
     ng-class="{'bottom-line-copayers':!$last}">
     <span>
       <i ng-if="$root.wallet.txProposals.txps[tx.ntxid].rejectedBy[cId]" class="fi-x icon-sign x"></i>
       <i ng-if="$root.wallet.txProposals.txps[tx.ntxid].signedBy[cId]" class="fi-check icon-sign check"></i>
-      <i ng-if="!$root.wallet.txProposals.txps[tx.ntxid].rejectedBy[cId] 
+      <i ng-if="!$root.wallet.txProposals.txps[tx.ntxid].rejectedBy[cId]
         && !$root.wallet.txProposals.txps[tx.ntxid].signedBy[cId]" class="m10r fi-loop icon-rotate"></i>
     </span>
     <span>
-      <i ng-if="$root.wallet.txProposals.txps[tx.ntxid].creator == cId" 
+      <i ng-if="$root.wallet.txProposals.txps[tx.ntxid].creator == cId"
         class="fi-crown icon-status icon-active m10r"></i>
     </span>
     <span>{{cId === $root.wallet.getMyCopayerId() ? 'Me' : $root.wallet.publicKeyRing.nicknameForCopayer(cId)}}</span>
@@ -83,29 +83,29 @@
   </span>
 </div>
 
-<div class="row collapse m10t" 
+<div class="row collapse m10t"
   ng-init="hideSign = false; hideReject = false"
   ng-show="!tx.signedBy[$root.wallet.getMyCopayerId()] && !tx.rejectedBy[$root.wallet.getMyCopayerId()] &&
   $root.wallet.txProposals.txps[tx.ntxid].builder.build().countInputMissingSignatures(0) != 0">
   <div class="large-5 medium-5 small-5 columns">
-    <button class="button warning m0 expand" ng-click="hideTxInfo = true; hideSign = true; reject(tx.ntxid);" 
+    <button class="button warning m0 expand" ng-click="hideTxInfo = true; hideSign = true; reject(tx.ntxid);"
       ng-disabled="loading" ng-show="!hideReject">
-      <i class="fi-x icon-sign x"></i>  
+      <i class="fi-x icon-sign x"></i>
       <span translate>Reject</span>
     </button>
   </div>
   <div class="large-5 medium-5 small-5 columns text-right">
-    <button class="button primary m0 expand" ng-click="hideTxInfo = true; hideReject = true; sign(tx.ntxid)" 
+    <button class="button primary m0 expand" ng-click="hideTxInfo = true; hideReject = true; sign(tx.ntxid)"
       ng-disabled="loading" ng-show="!hideSign">
-      <i class="fi-check icon-sign check"></i>  
+      <i class="fi-check icon-sign check"></i>
       <span translate>Sign</span>
     </button>
   </div>
 </div>
 
 <div ng-show="!hideTxInfo">
-  <div class="row collapse m10t" 
-    ng-show="!$root.wallet.txProposals.txps[tx.ntxid].sentTs 
+  <div class="row collapse m10t"
+    ng-show="!$root.wallet.txProposals.txps[tx.ntxid].sentTs
     && $root.wallet.txProposals.txps[tx.ntxid].builder.build().countInputMissingSignatures(0) == 0">
     <button class="primary tiny m0 expand"
       ng-click="broadcast(tx.ntxid)"
@@ -113,18 +113,18 @@
       <span translate>Broadcast Transaction</span>
     </button>
   </div>
-  <div class="text-success m10t oh" 
-    ng-show="$root.wallet.txProposals.txps[tx.ntxid].sentTs 
+  <div class="text-success m10t oh"
+    ng-show="$root.wallet.txProposals.txps[tx.ntxid].sentTs
     && $root.wallet.txProposals.txps[tx.ntxid].isFullySigned()">
-    <a class="button outline light-gray tiny right" 
-      ng-click="$root.openExternalLink('http://' + getShortNetworkName() + '.insight.is/tx/' +
+    <a class="button outline light-gray tiny right"
+      ng-click="$root.openExternalLink('http://104.236.152.29/tx/' +
       $root.wallet.txProposals.txps[tx.ntxid].sentTxid)">
       <span translate>See it on the blockchain</span> <i class="icon-arrow-right2 vm"></i>
     </a>
     <div class="m10t" translate>Transaction sent!</div>
   </div>
   <div class="text-center text-warning"
-    ng-show="!$root.wallet.txProposals.txps[tx.ntxid].sentTs && 
+    ng-show="!$root.wallet.txProposals.txps[tx.ntxid].sentTs &&
     $root.wallet.txProposals.txps[tx.ntxid].isFinallyRejected($root.wallet.maxRejectCount())" translate>
     Transaction finally rejected
   </div>

@@ -27,7 +27,7 @@ var RateService = function(opts) {
   self._rates = {};
   self._alternatives = [];
   self._queued = [];
-
+  self._fetchMUE();
   self._fetchCurrencies();
 };
 
@@ -39,6 +39,39 @@ RateService.singleton = function(opts) {
   return _instance;
 };
 
+RateService.prototype._fetchMUE = function() {
+  var self = this;
+
+  var backoffSeconds = 5;
+  var updateFrequencySeconds = 3600;
+  var rateServiceUrl = 'https://bleutrade.com/api/v2/public/getticker?market=MUE_BTC';
+  var rate;
+  var retrieve = function() {
+    log.info('Fetching MUE rates');
+    self.request.get({
+      url: rateServiceUrl,
+      json: true
+    }, function(err, res, body) {
+      if (err || !body) {
+        log.debug('Error fetching MUE rates', err);
+        setTimeout(function() {
+          backoffSeconds *= 1.5;
+          retrieve();
+        }, backoffSeconds * 1000);
+        return;
+      }
+      self._mrates = parseFloat(body.result[0].Last);
+      //log.info(self._mrates);
+      self._isAvailable = true;
+      _.each(self._queued, function(callback) {
+        setTimeout(callback, 1);
+      });
+      setTimeout(retrieve, updateFrequencySeconds * 1000);
+    });
+  };
+
+  retrieve();
+};
 
 RateService.prototype._fetchCurrencies = function() {
   var self = this;
@@ -82,6 +115,10 @@ RateService.prototype._fetchCurrencies = function() {
 
 RateService.prototype.getRate = function(code) {
   return this._rates[code];
+};
+
+RateService.prototype.getmRate = function() {
+  return this._mrates.toFixed(8);
 };
 
 RateService.prototype.getHistoricRate = function(code, date, cb) {
@@ -135,7 +172,7 @@ RateService.prototype.toFiat = function(satoshis, code) {
   if (!this.isAvailable()) {
     throw new Error(this.UNAVAILABLE_ERROR);
   }
-  return satoshis * this.SAT_TO_BTC * this.getRate(code);
+  return satoshis * this.SAT_TO_BTC * this.getmRate() * 1000  * this.getRate(code);
 };
 
 RateService.prototype.toFiatHistoric = function(satoshis, code, date, cb) {
@@ -143,7 +180,7 @@ RateService.prototype.toFiatHistoric = function(satoshis, code, date, cb) {
 
   self.getHistoricRate(code, date, function(err, rate) {
     if (err) return cb(err);
-    return cb(null, satoshis * self.SAT_TO_BTC * rate);
+    return cb(null, satoshis * self.SAT_TO_BTC * this.getmRate() * rate);
   });
 };
 
@@ -151,7 +188,7 @@ RateService.prototype.fromFiat = function(amount, code) {
   if (!this.isAvailable()) {
     throw new Error(this.UNAVAILABLE_ERROR);
   }
-  return amount / this.getRate(code) * this.BTC_TO_SAT;
+  return amount / this.getRate(code) * this.getmRate() * this.BTC_TO_SAT;
 };
 
 RateService.prototype.listAlternatives = function() {
