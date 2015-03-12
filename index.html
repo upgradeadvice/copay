@@ -11,7 +11,7 @@
       height:100%;
       overflow-y: auto;
       overflow-x: none;
-      background: #2C3E50;
+      background: #fff;
       padding-top: 20%;
       text-align: center;
     }
@@ -28,10 +28,38 @@
   <link rel="shortcut icon" href="img/favicon.ico">
 </head>
 <body
-  ng-controller="IndexController" 
-  ng-swipe-disable-mouse 
+  ng-controller="IndexController"
+  ng-swipe-disable-mouse
   ng-swipe-left="closeMenu()"
   ng-swipe-right="openMenu()">
+  <nav class="top-bar docs-bar hide-for-small" data-topbar>
+    <ul class="title-area">
+      <li class="name">
+        <h1><a href="/"><img src="/img/logowhite.png" style="height: 30px; margin: -5px 0 0 0";> MonetaryUnit Wallet</a></h1>
+      </li>
+    </ul>
+
+    <section class="top-bar-section">
+      <ul class="right">
+        <li class="divider"></li>
+        <li>
+          <a href="../../business/services.html" class="">Business</a>
+        </li>
+        <li class="divider"></li>
+        <li>
+          <a href="http://foundation.zurb.com/docs" class="">Docs</a>
+        </li>
+        <li class="divider"></li>
+        <li>
+          <a href="../../business/services.html" class="">Business</a>
+        </li>
+        <li class="divider"></li>
+        <li>
+          <a href="http://foundation.zurb.com/docs" class="">Docs</a>
+        </li>
+      </ul>
+    </section>
+  </nav>
 
   <div id="loading" class="loadingpage">
     <img src="img/ajax-loader.gif" alt="Loading...">
@@ -43,26 +71,26 @@
     </div>
 
     <div ng-show="sessionExpired" class="session-expired">
-      <i class="fi-clock size-72 text-gray"></i> 
+      <i class="fi-clock size-72 text-gray"></i>
       <p class="text-gray size-18" translate>Your session is about to expire due to inactivity in {{countdown}} seconds</p>
     </div>
 
     <div class="off-canvas-wrap" id="off-canvas-wrap" ng-show="!signingOut">
       <div class="inner-wrap">
 
-        <div class="status" ng-if="$root.needsEmailConfirmation && !$root.pleaseConfirmEmailAck"> 
-          <a class="close-notification text-white" ng-click="$root.pleaseConfirmEmailAck=true">&#215;</a> 
+        <div class="status" ng-if="$root.needsEmailConfirmation && !$root.pleaseConfirmEmailAck">
+          <a class="close-notification text-white" ng-click="$root.pleaseConfirmEmailAck=true">&#215;</a>
           <div class="row">
             <div class="large-10 medium-9 small-12 columns m5b">
               <i class="fi-alert size-36 left m20r"></i>
-              <strong class="size-16" translate>Email not confirmed</strong>.<br> 
+              <strong class="size-16" translate>Email not confirmed</strong>.<br>
               <span translate>
                 Please confirm your email address using the confirmation link at the message we sent you
               </span>
             </div>
             <div class="large-2 medium-3 small-12 columns text-center">
-              <button class="text-white warning tiny m0" 
-                ng-click="resendVerificationEmail()" 
+              <button class="text-white warning tiny m0"
+                ng-click="resendVerificationEmail()"
                 ng-disabled="loading"
                 ng-show="!hideReSendButton">
                 {{ loading ? 'Resending...' : 'Resend' }}
@@ -70,31 +98,31 @@
             </div>
           </div>
         </div>
-         <div class="status" ng-if="$root.pleaseConfirmEmail"> 
+         <div class="status" ng-if="$root.pleaseConfirmEmail">
           <a class="close-notification text-white" ng-click="$root.pleaseConfirmEmail=null">&#215;</a>
           <i class="fi-alert size-36 left m20r"></i>
-          <strong class="size-16" translate>Confirm your email address</strong>.<br> 
-          <span translate>An email was sent to</span> {{$root.iden.getName()}}. 
+          <strong class="size-16" translate>Confirm your email address</strong>.<br>
+          <span translate>An email was sent to</span> {{$root.iden.getName()}}.
           <span translate>Please follow the link on it to confirm it. Unconfirmed profiles could be deleted from server.</span>
 
         </div>
         <div class="status" ng-if="$root.reconnecting">
           <i class="fi-loop icon-rotate"></i>
-          <strong class="size-16" translate>Network Error</strong>.<br> 
+          <strong class="size-16" translate>Network Error</strong>.<br>
           <span translate>Attempting to reconnect...</span>
         </div>
- 
+
         <div ng-if="$root.iden">
           <div ng-controller="SidebarController" ng-show="!$root.hideNavigation  && !$root.wpInputFocused">
             <nav class="tab-bar">
               <section class="left-small">
-                <a class="p10" 
+                <a class="p10"
                   ng-click="openMenu()"><i class="fi-list size-24"></i></a>
               </section>
 
-              <section class="right-small" 
+              <section class="right-small"
                 ng-show="$root.wallet.isComplete() && !$root.hideWalletNavigation && isCordova">
-                <a class="p10" 
+                <a class="p10"
                   ng-click="openScanner()"><i class="fi-camera size-24"></i></a>
               </section>
 
@@ -109,7 +137,7 @@
               <div ng-include="'views/includes/sidebar-mobile.html'"></div>
             </nav>
 
-            <div ng-include="'views/includes/sidebar.html'" 
+            <div ng-include="'views/includes/sidebar.html'"
               role='navigation'
               class="sidebar"></div>
             <div class="bottom-bar" ng-if="$root.wallet &&
@@ -119,26 +147,26 @@
           </div>
         </div>
 
-        <div notifications="right top"></div> 
+        <div notifications="right top"></div>
 
-        <div 
+        <div
           ng-controller="HeadController"
-          class="head show-for-large-up" 
+          class="head show-for-large-up"
           ng-include="'views/includes/head.html'"
           ng-if="$root.iden"
           ng-class="{'dni':$root.hideNavigation || $root.wpInputFocused}"
         ></div>
 
-        <section 
-          ng-class="{'main':$root.iden && !$root.starting && !$root.hideNavigation  && !$root.wpInputFocused}" 
-          ng-view></section> 
+        <section
+          ng-class="{'main':$root.iden && !$root.starting && !$root.hideNavigation  && !$root.wpInputFocused}"
+          ng-view></section>
 
         <a class="close-menu" ng-click="closeMenu()"></a>
 
       </div>
     </div>
   </div>
-  
+
   <link rel="stylesheet" href="css/vendors.min.css">
   <link rel="stylesheet" href="css/copay.min.css">
 

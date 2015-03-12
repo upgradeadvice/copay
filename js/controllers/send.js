@@ -505,7 +505,7 @@ angular.module('copayApp.controllers').controller('SendController',
       $scope.error = $scope.success = null;
       if (!value) return '';
 
-      if (value.indexOf('bitcoin:') === 0) {
+      if (value.indexOf('monetaryunit:') === 0) {
         return $scope.setFromUri(value);
       } else if (/^https?:\/\//.test(value)) {
         return $scope.setFromPayPro(value);

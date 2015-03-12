@@ -40,7 +40,7 @@ angular.module('copayApp.directives')
 
 
           // Bip21 uri
-          if (/^bitcoin:/.test(value)) {
+          if (/^monetaryunit:/.test(value)) {
             var uri = new bitcore.BIP21(value);
             var hasAddress = uri.address && uri.isValid() && uri.address.network().name === $rootScope.wallet.getNetworkName();
             ctrl.$setValidity('validAddress', uri.data.merchant || hasAddress);
@@ -208,7 +208,7 @@ angular.module('copayApp.directives')
 
         var MIN_LENGTH = 8;
         var MESSAGES = ['Very Weak', 'Very Weak', 'Weak', 'Medium', 'Strong', 'Very Strong'];
-        var COLOR = ['#dd514c', '#dd514c', '#faa732', '#faa732', '#16A085', '#16A085'];
+        var COLOR = ['#dd514c', '#dd514c', '#faa732', '#faa732', '#C98223', '#C98223'];
 
         function evaluateMeter(password) {
           var passwordStrength = 0;
@@ -258,13 +258,13 @@ angular.module('copayApp.directives')
   })
   .directive('showFocus', function($timeout) {
     return function(scope, element, attrs) {
-      scope.$watch(attrs.showFocus, 
-        function (newValue) { 
+      scope.$watch(attrs.showFocus,
+        function (newValue) {
           $timeout(function() {
               newValue && element[0].focus();
           });
         },true);
-    };    
+    };
   })
   .directive('match', function() {
     return {

@@ -31,9 +31,9 @@ var defaultConfig = {
     reconnectDelay: 5000,
     idleDurationMin: 4,
     settings: {
-      unitName: 'bits',
-      unitToSatoshi: 100,
-      unitDecimals: 2,
+      unitName: 'MUE',
+      unitToSatoshi: 100000,
+      unitDecimals: 4,
       alternativeName: 'US Dollar',
       alternativeIsoCode: 'USD',
     }
