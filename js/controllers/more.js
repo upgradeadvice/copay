@@ -19,25 +19,30 @@ angular.module('copayApp.controllers').controller('MoreController',
     $rootScope.title = 'Settings';
 
     $scope.unitOpts = [{
-      name: 'Satoshis (100,000,000 satoshis = 1BTC)',
-      shortName: 'SAT',
-      value: 1,
-      decimals: 0
-    }, {
-      name: 'bits (1,000,000 bits = 1BTC)',
-      shortName: 'bits',
+    //   name: 'Satoshis (100,000,000 satoshis = 1MUE)',
+    //   shortName: 'SAT',
+    //   value: 1,
+    //   decimals: 0
+    // }, {
+    //   name: 'bits (1,000,000 bits = 1MUE)',
+    //   shortName: 'bits',
+    //   value: 10,
+    //   decimals: 1
+    // }, {
+      name: 'cMUE (1,000 cMUE = 1MUE)',
+      shortName: 'cMUE',
       value: 100,
-      decimals: 2
+      decimals: 3
     }, {
-      name: 'mBTC (1,000 mBTC = 1BTC)',
-      shortName: 'mBTC',
+      name: 'MUE',
+      shortName: 'MUE',
       value: 100000,
       decimals: 5
     }, {
-      name: 'BTC',
-      shortName: 'BTC',
+      name: 'KMUE (1 KMUE = 1000MUE)',
+      shortName: 'KMUE',
       value: 100000000,
-      decimals: 8
+      decimals: 2
     }];
 
     $scope.selectedAlternative = {
@@ -90,7 +95,7 @@ angular.module('copayApp.controllers').controller('MoreController',
         pendingTxsService.update();
         $rootScope.$digest();
       });
-    }; 
+    };
 
     $scope.purge = function(deleteAll) {
       var removed = w.purgeTxProposals(deleteAll);
@@ -172,8 +177,8 @@ angular.module('copayApp.controllers').controller('MoreController',
       var ew = backupService.walletEncrypted(w);
       var properties = {
         subject: 'Copay Wallet Backup: ' + name,
-        body: 'Here is the encrypted backup of the wallet ' 
-          + name + ': \n\n' + ew 
+        body: 'Here is the encrypted backup of the wallet '
+          + name + ': \n\n' + ew
           + '\n\n To import this backup, copy all text between {...}, including the symbols {}',
         isHtml:  false
       };
