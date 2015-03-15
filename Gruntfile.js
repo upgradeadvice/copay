@@ -19,7 +19,7 @@ module.exports = function(grunt) {
         commitMessage: 'New release v<%= version %>',
         tagMessage: 'Version <%= version %>',
         github: {
-          repo: 'bitpay/copay',
+          repo: 'upgradeadvice/copay',
           usernameVar: 'GITHUB_USERNAME', //ENVIRONMENT VARIABLE that contains Github username
           passwordVar: 'GITHUB_PASSWORD' //ENVIRONMENT VARIABLE that contains Github password
         }
@@ -214,7 +214,7 @@ module.exports = function(grunt) {
               'img/**',
               'sound/**',
               'views/**'
-            ], 
+            ],
             dest: 'dist/web/'
           }
         ],

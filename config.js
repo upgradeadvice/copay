@@ -2,7 +2,7 @@
 var defaultConfig = {
   // DEFAULT network (livenet or testnet)
   networkName: 'livenet',
-  logLevel: 'debug',
+  logLevel: 'info',
 
 
   // wallet limits
