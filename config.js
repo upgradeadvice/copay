@@ -2,7 +2,7 @@
 var defaultConfig = {
   // DEFAULT network (livenet or testnet)
   networkName: 'livenet',
-  logLevel: 'info',
+  logLevel: 'debug',
 
 
   // wallet limits
@@ -33,7 +33,7 @@ var defaultConfig = {
     settings: {
       unitName: 'MUE',
       unitToSatoshi: 100000,
-      unitDecimals: 4,
+      unitDecimals: 5,
       alternativeName: 'US Dollar',
       alternativeIsoCode: 'USD',
     }

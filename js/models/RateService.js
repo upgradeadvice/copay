@@ -180,7 +180,7 @@ RateService.prototype.toFiatHistoric = function(satoshis, code, date, cb) {
 
   self.getHistoricRate(code, date, function(err, rate) {
     if (err) return cb(err);
-    return cb(null, satoshis * self.SAT_TO_BTC * this.getmRate() * rate);
+    return cb(null, satoshis * self.SAT_TO_BTC * this.getmRate() * 1000 * rate);
   });
 };
 
@@ -188,7 +188,7 @@ RateService.prototype.fromFiat = function(amount, code) {
   if (!this.isAvailable()) {
     throw new Error(this.UNAVAILABLE_ERROR);
   }
-  return amount / this.getRate(code) * this.getmRate() * this.BTC_TO_SAT;
+  return amount / this.getRate(code) * this.getmRate() * 1000 * this.BTC_TO_SAT;
 };
 
 RateService.prototype.listAlternatives = function() {

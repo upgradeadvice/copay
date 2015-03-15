@@ -44,7 +44,7 @@ angular.module('copayApp.services')
         if (rateService.isAvailable()) {
           var totalBalanceAlternative = rateService.toFiat(balanceSat, w.settings.alternativeIsoCode);
           var lockedBalanceAlternative = rateService.toFiat(balanceSat - safeBalanceSat, w.settings.alternativeIsoCode);
-          var alternativeConversionRate = rateService.toFiat(100000000, w.settings.alternativeIsoCode);
+          var alternativeConversionRate = rateService.toFiat(100000, w.settings.alternativeIsoCode);
 
           r.totalBalanceAlternative = $filter('noFractionNumber')(totalBalanceAlternative, 2);
           r.lockedBalanceAlternative = $filter('noFractionNumber')(lockedBalanceAlternative, 2);
