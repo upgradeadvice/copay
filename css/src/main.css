@@ -129,7 +129,7 @@ header .alt-currency {
 }
 
 .alt-currency.black {
-  background: #213140;
+  background: #999;
 }
 
 .alt-currency.gray {
@@ -213,7 +213,7 @@ header .alt-currency {
 }
 
 .col3 a.selected {
-  background-color: #213140;
+  background-color: #999;
   color: #3C4E60;
 }
 
@@ -488,7 +488,7 @@ ul.tx-copayers {
 }
 
 .date-message {
-  background-color: #213140;
+  background-color: #999;
   border-radius: 3px;
   font-size: 12px;
   padding: 0.2rem 0.4rem;
@@ -546,7 +546,7 @@ ul.tx-copayers {
 }
 
 .manage a.import i {
-  background-color: #213140;
+  background-color: #999;
 }
 
 .dn {display: none;}
@@ -666,7 +666,7 @@ ul.tx-copayers {
 }
 
 .box-livenet {
-  background: #213140;
+  background: #999;
   padding: 0rem 0.5rem 0.2rem;
   color: #7A8C9E;
 }
@@ -1065,7 +1065,7 @@ button.gray,
 }
 
 .wallet-selection.wallets {
-  background-color: #213140 ;
+  background-color: #999 ;
 }
 
 ul.wallet-selection.wallets {
@@ -1089,7 +1089,7 @@ ul.wallet-selection.wallets {
 
 .side-nav.wallets {
   z-index: 100;
-  background-color: #213140 ;
+  background-color: #222 ;
   border-bottom: 1px solid #3A4E61;
   overflow-y: auto;
   position: absolute;
@@ -1417,7 +1417,7 @@ input.ng-invalid-match, input.ng-invalid-match:focus {
     overflow: hidden;
     position: relative;
     float: left;
-    background: #213140;
+    background: #999;
     -webkit-border-radius: 2px;
     -moz-border-radius: 2px;
     border-radius: 2px;
@@ -1549,7 +1549,7 @@ input.ng-invalid-match, input.ng-invalid-match:focus {
 .home .input,
 .import-profile .input,
 .settings .input {
-  box-shadow: 0px 0px 0px 3px #213140, inset 1px 1px 0px 0px rgba(0,0,0,0.05);
+  box-shadow: 0px 0px 0px 3px #999, inset 1px 1px 0px 0px rgba(0,0,0,0.05);
   border-radius: 3px;
 }
 
@@ -1572,7 +1572,7 @@ input.ng-invalid-match, input.ng-invalid-match:focus {
 }
 
 .tabbable {
-  border: 2px solid #213140;
+  border: 2px solid #999;
   border-radius: 3px;
   margin-bottom: 1.2rem;
 }
@@ -1583,7 +1583,7 @@ input.ng-invalid-match, input.ng-invalid-match:focus {
 }
 
 .tabs dd>a {
-  background: #213140;
+  background: #999;
   text-transform: uppercase;
   color: #3E4F5D;
   padding: 1rem;

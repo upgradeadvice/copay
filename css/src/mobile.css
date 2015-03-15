@@ -283,12 +283,12 @@
 
   .bottombar-item a.active {
     color: #E4E8EC;
-    background-color: #213140;
+    background-color: #999;
     border-bottom: 3px solid #1ABC9C;
   }
 
   .box-founds {
-    background-color: #213140;
+    background-color: #999;
   }
 
   .left-small {

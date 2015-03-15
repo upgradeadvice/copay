@@ -44,7 +44,7 @@
   <div class="large-5 large-centered medium-7 medium-centered columns" ng-show="!$root.starting && !showDisclaimer">
 
     <div class="logo-setup" ng-show="!$root.iden && !hideForWP && !$root.hasPin">
-      <img src="img/logo-negative-beta.svg" alt="Copay" width="100">
+      <img src="img/logo-negative-beta.png" alt="MonetaryUnit Wallet" width="200">
       <div ng-include="'views/includes/version.html'"></div>
     </div>
 
@@ -74,14 +74,14 @@
     </div>
 
     <div ng-if='!$root.hasPin && !askForPin && !$root.iden'>
-      <div class="clipo" ng-hide="hideForWP">
+      <!-- <div class="clipo" ng-hide="hideForWP">
         <img src="img/clipo-signin.png" alt="clipo" width="310">
-      </div>
+      </div> -->
       <div class="p10 m20b size-14 bg-success text-white" ng-show="anyWallet && !confirmedEmail && !error">
         <div class="left">
           <i class="size-36 fi-alert m10r"></i>
         </div>
-        <b translate>Copay now needs a profile to access wallets.</b>
+        <b translate>You need a profile to access wallets.</b>
         <span translate>You can import your current wallets after</span>
         <a class="text-white" ng-click="$root.go('/createProfile')" translate>creating your profile</a>
       </div>
