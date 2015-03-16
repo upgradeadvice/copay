@@ -128,7 +128,7 @@ angular.module('copayApp.controllers').controller('HistoryController',
         if (err || !res) return cb(err);
         _.each(res, function(r) {
           _.each(index[r.ts], function (tx) {
-            var alternativeAmount = (r.rate != null ? tx.amountSat * rateService.SAT_TO_BTC * r.rate : null);
+            var alternativeAmount = (r.rate != null ? tx.amountSat / 1000 * rateService.SAT_TO_BTC * r.rate : null);
             tx.alternativeAmount = alternativeAmount ? $filter('noFractionNumber')(alternativeAmount, 2) : null;
           });
         });
