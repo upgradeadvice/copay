@@ -18,7 +18,7 @@ var defaultConfig = {
       transports: ['polling'],
     },
     livenet: {
-      url: 'https://muechain.monetaryunit.tk',
+      url: 'https://www.muechain.info',
       transports: ['polling'],
     },
   },
@@ -46,7 +46,7 @@ var defaultConfig = {
   },
 
   rates: {
-    url: 'https://muechain.monetaryunit.tk/api/rates',
+    url: 'https://www.muechain.info/api/rates',
   },
 
   verbose: 1,
@@ -61,7 +61,7 @@ var defaultConfig = {
 
   // This can be changed on the UX > Settings > Insight livenet
   EncryptedInsightStorage: {
-    url: 'https://muechain.monetaryunit.tk/api/email',
+    url: 'https://www.muechain.info/api/email',
     //url: 'http://localhost:3001/api/email'
 
     // This KDF parameters are for the passphrase for Insight authentication
