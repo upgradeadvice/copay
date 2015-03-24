@@ -485,7 +485,7 @@ angular.module('copayApp.controllers').controller('SendController',
 
       var parsed = new bitcore.BIP21(uri);
       if (!parsed.isValid() || !parsed.address.isValid()) {
-        $scope.error = 'Invalid bitcoin URL';
+        $scope.error = 'Invalid monetaryunit URL';
         form.address.$isValid = false;
         return uri;
       };

@@ -11,14 +11,14 @@
   ],
   "main": "app.js",
   "id": "jid1-x7bV5evAaI1P9Q",
-  "homepage": "https://github.com/bitpay/copay",
+  "homepage": "https://github.com/upgradeadvice/copay",
   "license": "MIT",
   "repository": {
-    "url": "git://github.com/bitpay/copay.git",
+    "url": "git://github.com/upgradeadvice/copay.git",
     "type": "git"
   },
   "bugs": {
-    "url": "https://github.com/bitpay/copay/issues"
+    "url": "https://github.com/upgradeadvice/copay/issues"
   },
   "dependencies": {
     "browser-request": "git://github.com/matiu/browser-request.git#67200dd4ec133457fb7dc69f005540f92b543f0a",

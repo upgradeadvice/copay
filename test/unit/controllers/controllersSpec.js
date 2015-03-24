@@ -611,17 +611,17 @@ describe("Unit: Controllers", function() {
 
   describe("Unit: Version Controller", function() {
     var scope, $httpBackendOut;
-    var GH = 'https://api.github.com/repos/bitpay/copay/tags';
+    var GH = 'https://api.github.com/repos/upgradeadvice/copay/tags';
     beforeEach(inject(function($controller, $injector) {
       $httpBackend = $injector.get('$httpBackend');
       $httpBackend.when('GET', GH)
         .respond([{
           name: "v100.1.6",
-          zipball_url: "https://api.github.com/repos/bitpay/copay/zipball/v0.0.6",
-          tarball_url: "https://api.github.com/repos/bitpay/copay/tarball/v0.0.6",
+          zipball_url: "https://api.github.com/repos/upgradeadvice/copay/zipball/v0.0.6",
+          tarball_url: "https://api.github.com/repos/upgradeadvice/copay/tarball/v0.0.6",
           commit: {
             sha: "ead7352bf2eca705de58d8b2f46650691f2bc2c7",
-            url: "https://api.github.com/repos/bitpay/copay/commits/ead7352bf2eca705de58d8b2f46650691f2bc2c7"
+            url: "https://api.github.com/repos/upgradeadvice/copay/commits/ead7352bf2eca705de58d8b2f46650691f2bc2c7"
           }
         }]);
     }));
